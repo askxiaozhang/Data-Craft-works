@@ -9,15 +9,21 @@ DataCraftworks/              # 主目录
 |   |-- src/                 # 源代码目录
 |   |   |-- data_parser/     # 多边形 JSON 解析模块
 |   |   |   |-- __init__.py  # 初始化文件
-|   |   |   |-- polygon_parser.py  # 多边形解析器
+|   |   |   |-- json_parser.py  # 解析 JSON 数据的模块
 |   |
-|   |   |-- conversion_engine/    # 转换引擎模块
-|   |   |   |-- __init__.py      # 初始化文件
-|   |   |   |-- rectangle_converter.py  # 矩形转换器
+|   |   |-- conversion_engine/
+|   |   |   |-- __init__.py
+|   |   |   |-- rectangle_converter.py  # 矩形转换器模块
+|   |   |   |-- bounding_box_extractor.py  # 新增的模块，用于提取边界框
 |   |
 |   |   |-- output_module/    # 输出模块
 |   |   |   |-- __init__.py  # 初始化文件
 |   |   |   |-- txt_output.py  # TXT 文件输出器
+|   |
+|   |   |-- utils/  # 通用工具模块
+|   |   |   |-- __init__.py
+|   |   |   |-- label_mapping.py  # 标签映射的工具函数
+|   |   |   |-- bounding_box_operations.py  # 新增的模块，用于边界框操作
 |   |
 |   |-- tests/                # 测试模块
 |   |   |-- test_data_parser.py    # 多边形解析器测试
@@ -43,4 +49,18 @@ DataCraftworks/              # 主目录
 |-- LICENSE                  # 许可证文件
 |-- README.md                # 主文档
 ```
+
+# 使用方法
+
+运行 Data-Craft-works/data_transform_factory/目录下的main.py函数
+
+其中`json_folder_path = 'examples/sample_data/input_data/json_data'`把待转换的json文件夹路径中的数据换成自己的
+
+同理设置生成的txt结果路径`txt_outer_path = '../examples/sample_data/output_data/txt_out_data'`
+
+`decode_json(json_folder_path, txt_outer_path, json_name, convert=False)` **这里设置是否要缩放坐标，如果为False则不用缩放**
+
+
+
+
 
